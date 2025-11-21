@@ -65,19 +65,31 @@ OPENAI_API_KEY=your_openai_api_key
 
 ### 4. Настройка Supabase
 
+> 📘 **[Подробное пошаговое руководство по настройке Supabase →](docs/SUPABASE_SETUP.md)**
+
+**Краткая инструкция:**
+
 #### 4.1 Создание проекта
 
-1. Перейдите на [supabase.com](https://supabase.com)
-2. Создайте новый проект
-3. Скопируйте Project URL и anon public key
+1. Перейдите на [supabase.com](https://supabase.com) и создайте аккаунт
+2. Создайте новый проект (выберите регион и установите пароль БД)
+3. Дождитесь завершения создания проекта (1-2 минуты)
 
-#### 4.2 Создание схемы базы данных
+#### 4.2 Получение API ключей
 
-Выполните SQL-миграцию из файла `supabase/schema.sql`:
+1. Перейдите в **Settings** → **API** в вашем проекте
+2. Скопируйте:
+   - `Project URL` → в `NEXT_PUBLIC_SUPABASE_URL`
+   - `anon public` key → в `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+3. Вставьте их в файл `.env.local`
 
-1. Откройте SQL Editor в панели Supabase
-2. Скопируйте содержимое `supabase/schema.sql`
-3. Выполните запрос
+#### 4.3 Создание схемы базы данных
+
+1. Откройте **SQL Editor** в панели Supabase
+2. Нажмите **"New query"**
+3. Скопируйте **ВСЁ** содержимое файла `supabase/schema.sql`
+4. Вставьте в SQL Editor и нажмите **"Run"**
+5. ✅ Проверьте создание таблиц в **Table Editor**
 
 Это создаст следующие таблицы:
 - `profiles` - профили пользователей
